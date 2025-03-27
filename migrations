@@ -1,0 +1,24 @@
+CREATE SCHEMA IF NOT EXISTS Korneeva;
+
+CREATE TABLE IF NOT EXISTS Korneeva.cars (
+	id INTEGER PRIMARY KEY,
+	car_number TEXT NOT NULL,
+	car_model TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Korneeva.drivers (    
+    id INTEGER PRIMARY KEY,
+    driver_rating INTEGER NOT NULL,
+    driver_name TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Korneeva.orders (    
+    id INTEGER PRIMARY KEY,
+    start_pos TEXT NOT NULL,
+    end_pos TEXT NOT NULL,
+    start_time DATE NOT NULL,
+    status TEXT NOT NULL,
+	passenger_name TEXT NOT NULL,
+	CONSTRAINT car_id FOREIGN KEY (id) REFERENCES cars(id),
+	CONSTRAINT driver_id FOREIGN KEY (id) REFERENCES drivers(id)
+);

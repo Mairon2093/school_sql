@@ -1,3 +1,5 @@
+import psycopg2
+
 database = "school_db"
 user = "school"
 password = "School1234*"

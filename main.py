@@ -28,7 +28,7 @@ app = FastAPI()
 
 @app.get("/ping")
 async def ping():
-    return Response(200)
+    return Response(status_code=200)
 
 @app.post("/orders")
 async def register(r : Request):

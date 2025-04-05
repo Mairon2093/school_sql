@@ -27,7 +27,7 @@ class Order:
 def GETcars(conn):
     Korneeva = conn.cursor()
     Korneeva.execute("SELECT * FROM cars;")
-    Korneeva.fetchall()
+    return Korneeva.fetchall()
 
 def POSTcar(conn, number, model):
     Korneeva = conn.cursor()
@@ -41,7 +41,7 @@ def DELEREcar(conn, id):
 def GETinfocar(conn, id):
     Korneeva = conn.cursor()
     Korneeva.execute("SELECT * FROM Korneeva.cars WHERE id = " + str(id) + ";")
-    Korneeva.fetchall()
+    return Korneeva.fetchall()
 
 def PUTcar(conn, id, new_model, new_number):
     Korneeva = conn.cursor()
@@ -50,17 +50,17 @@ def PUTcar(conn, id, new_model, new_number):
 def GETdrivers(conn):
     Korneeva = conn.cursor()
     Korneeva.execute("SELECT * FROM Korneeva.drivers;")
-    Korneeva.fetchall()
+    return Korneeva.fetchall()
 
 def POSTdriver(conn, raiting, name):
     Korneeva = conn.cursor()
-    Korneeva.execute("INSERT INTO Korneeva.drivers VALUES (1, "
+    returnKorneeva.execute("INSERT INTO Korneeva.drivers VALUES (1, "
                      + str(rating) + ", " + str(name) + ");")
 
 def GETinfodriver(conn, id):
     Korneeva = conn.cursor()
     Korneeva.execute("SELECT * FROM Korneeva.drivers WHERE id = " + str(id) + ";")
-    Korneeva.fetchall()
+    return Korneeva.fetchall()
 
 def PUTdriver(conn, id, new_name, new_rate):
     Korneeva = conn.cursor()
@@ -74,7 +74,7 @@ def DELETEdriver(conn, id):
 def GETorders(conn):
     Korneeva = conn.cursor()
     Korneeva.execute("SELECT * FROM Korneeva.orders;")
-    Korneeva.fetchall()
+    return Korneeva.fetchall()
 
 def POSTorders(conn, start, end, start_time, status, pass_name, car_id, driver_id):
     Korneeva = conn.cursor()
@@ -85,7 +85,7 @@ def POSTorders(conn, start, end, start_time, status, pass_name, car_id, driver_i
 def GETinfoorder(conn, id):
     Korneeva = conn.cursor()
     Korneeva.execute("SELECT * FROM Korneeva.orders WHERE id = " + str(id) + ";")
-    Korneeva.fetchall()
+    return Korneeva.fetchall()
 
 def PUTorder(conn, id, new_status):
     Korneeva = conn.cursor()

@@ -54,7 +54,7 @@ def GETdrivers(conn):
 
 def POSTdriver(conn, raiting, name):
     Korneeva = conn.cursor()
-    returnKorneeva.execute("INSERT INTO Korneeva.drivers VALUES (1, "
+    Korneeva.execute("INSERT INTO Korneeva.drivers VALUES (1, "
                      + str(rating) + ", " + str(name) + ");")
 
 def GETinfodriver(conn, id):

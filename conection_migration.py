@@ -16,5 +16,6 @@ conn = psycopg2.connect(
 
 cur = conn.cursor()
 migration = ""
-with open("migrations.sql") as f:
+with open("migrations") as f:
     migration = f.read()
+    cur.execute(migration)

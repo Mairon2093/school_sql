@@ -19,6 +19,6 @@ CREATE TABLE IF NOT EXISTS Korneeva.orders (
     start_time DATE NOT NULL,
     status TEXT NOT NULL,
 	passenger_name TEXT NOT NULL,
-	CONSTRAINT car_id FOREIGN KEY (id) REFERENCES cars(id),
-	CONSTRAINT driver_id FOREIGN KEY (id) REFERENCES drivers(id)
+	CONSTRAINT car_id FOREIGN KEY (id) REFERENCES Korneeva.cars(id),
+	CONSTRAINT driver_id FOREIGN KEY (id) REFERENCES Korneeva.drivers(id)
 );

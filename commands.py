@@ -24,73 +24,73 @@ class Order:
         self.car_id = car_id
         self.driver_id = driver_id
 
-def GETcars():
+def GETcars(conn):
     Korneeva = conn.cursor()
     Korneeva.execute("SELECT * FROM cars;")
     Korneeva.fetchall()
 
-def POSTcar(number, model):
+def POSTcar(conn, number, model):
     Korneeva = conn.cursor()
     Korneeva.execute("INSERT INTO Korneeva.cars VALUES (1, "
                      + str(number) + ", " + str(model) + ");")
 
-def DELEREcar(id):
+def DELEREcar(conn, id):
     Korneeva = conn.cursor()
     Korneeva.execute("DELETE FROM Korneeva.cars WHERE id = " + str(id) + ";")
 
-def GETinfocar(id):
+def GETinfocar(conn, id):
     Korneeva = conn.cursor()
     Korneeva.execute("SELECT * FROM Korneeva.cars WHERE id = " + str(id) + ";")
     Korneeva.fetchall()
 
-def PUTcar(id, new_model, new_number):
+def PUTcar(conn, id, new_model, new_number):
     Korneeva = conn.cursor()
     Korneeva.execute("UPDATE Korneeva.cars SET car_number = " + str(new_number) + ", car_model = " + str(new_model) + " WHERE id = " + str(id) + ";")
 
-def GETdrivers():
+def GETdrivers(conn):
     Korneeva = conn.cursor()
     Korneeva.execute("SELECT * FROM Korneeva.drivers;")
     Korneeva.fetchall()
 
-def POSTdriver(raiting, name):
+def POSTdriver(conn, raiting, name):
     Korneeva = conn.cursor()
     Korneeva.execute("INSERT INTO Korneeva.drivers VALUES (1, "
                      + str(rating) + ", " + str(name) + ");")
 
-def GETinfodriver(id):
+def GETinfodriver(conn, id):
     Korneeva = conn.cursor()
     Korneeva.execute("SELECT * FROM Korneeva.drivers WHERE id = " + str(id) + ";")
     Korneeva.fetchall()
 
-def PUTdriver(id, new_name, new_rate):
+def PUTdriver(conn, id, new_name, new_rate):
     Korneeva = conn.cursor()
     Korneeva.execute("UPDATE Korneeva.drivers SET driver_rating = " + str(new_rate) + ", " + "driver_name = " + str(new_name) +
                      " WHERE id = " + str(id) + ";")
 
-def DELETEdriver(id):
+def DELETEdriver(conn, id):
     Korneeva = conn.cursor()
     Korneeva.execute("DELETE FROM Korneeva.drivers WHERE id = " + str(id) + ";")
 
-def GETorders():
+def GETorders(conn):
     Korneeva = conn.cursor()
     Korneeva.execute("SELECT * FROM Korneeva.orders;")
     Korneeva.fetchall()
 
-def POSTorders(start, end, start_time, status, pass_name, car_id, driver_id):
+def POSTorders(conn, start, end, start_time, status, pass_name, car_id, driver_id):
     Korneeva = conn.cursor()
     Korneeva.execute("INSERT INTO Korneeva.orders VALUES (1, "
                      + str(start) + ", " + str(end) + ", " + str(start_time) + ", " + str(status) + ", " + str(pass_name)
                      + ", " + str(car_id) + ", " + str(driver_id) + ");")
 
-def GETinfoorder(id):
+def GETinfoorder(conn, id):
     Korneeva = conn.cursor()
     Korneeva.execute("SELECT * FROM Korneeva.orders WHERE id = " + str(id) + ";")
     Korneeva.fetchall()
 
-def PUTorder(id, new_status):
+def PUTorder(conn, id, new_status):
     Korneeva = conn.cursor()
     Korneeva.execute("UPDATE Korneeva.orders SET status = " + str(new_status) + " WHERE id = " + str(id) + ";")
 
-def DELETEorder(id):
+def DELETEorder(conn, id):
     Korneeva = conn.cursor()
     Korneeva.execute("DELETE FROM Korneeva.orders WHERE id = " + str(id) + ";")

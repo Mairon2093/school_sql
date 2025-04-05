@@ -48,14 +48,6 @@ GET/cars/{id} - получить данные машины по id
 	""car_model"" : ""TEXT""
 }
 
-PUT/cars/{id} - обновить данные машины по id
-тело запроса:
-{
-	""car_number"" : ""TEXT"",
-	""car_model"" : ""TEXT""
-}
-
-
 GET/drivers - получить список водителей
 тело ответа:
 [
@@ -81,15 +73,7 @@ GET/drivers/{id} - получить данные водителя
 	""driver_name"" : ""TEXT""
 }
 
-PUT/drivers/{id} - обновить данные водителя
-тело запроса:
-{
-	""driver_rating"" : ""INTEGER"",
-	""driver_name"" : ""TEXT""
-}
-
 DELETE/drivers/{id} - удалить водителя
-
 
 GET/orders - получить список заказов
 тело ответа:
@@ -129,12 +113,6 @@ GET/orders/{id} - получить данные заказа
 	""passenger_name"" : ""TEXT"",
 	""car_id"" : ""INTEGER"",
 	""driver_id"" : ""INTEGER""
-}
-
-PUT/orders/{id}/status - изменить статус заказа
-тело запроса:
-{
-	""status"" : ""TEXT""
 }
 
 DELETE/orders/{id} - удалить информацию о заказе

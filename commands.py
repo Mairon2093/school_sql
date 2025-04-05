@@ -24,22 +24,10 @@ class Order:
         self.car_id = car_id
         self.driver_id = driver_id
 
-        
-
 def GETcars():
     Korneeva = conn.cursor()
     Korneeva.execute("SELECT * FROM cars;")
-    #Korneeva.fetchall()
-    
-GET/cars - получить список машин
-тело ответа:
-[
-	{
-		""id"" : ""INTEGER"",
-		""car_number"" : ""TEXT"",
-		""car_model"" : ""TEXT""
-	}
-]
+    Korneeva.fetchall()
 
 def POSTcar(number, model):
     Korneeva = conn.cursor()
@@ -64,16 +52,6 @@ def GETdrivers():
     Korneeva.execute("SELECT * FROM Korneeva.drivers;")
     Korneeva.fetchall()
 
-GET/drivers - получить список водителей
-тело ответа:
-[
-	{
-		""id"" : ""INTEGER"",
-		""driver_rating"" : ""INTEGER"",
-		""driver_name"" : ""TEXT""
-	}
-]
-
 def POSTdriver(raiting, name):
     Korneeva = conn.cursor()
     Korneeva.execute("INSERT INTO Korneeva.drivers VALUES (1, "
@@ -83,14 +61,6 @@ def GETinfodriver(id):
     Korneeva = conn.cursor()
     Korneeva.execute("SELECT * FROM Korneeva.drivers WHERE id = " + str(id) + ";")
     Korneeva.fetchall()
-
-GET/drivers/{id} - получить данные водителя
-тело ответа:
-{
-	""id"" : ""INTEGER"" PRIMARY KEY,
-	""driver_rating"" : ""INTEGER"",
-	""driver_name"" : ""TEXT""
-}
 
 def PUTdriver(id, new_name, new_rate):
     Korneeva = conn.cursor()
@@ -106,21 +76,6 @@ def GETorders():
     Korneeva.execute("SELECT * FROM Korneeva.orders;")
     Korneeva.fetchall()
 
-GET/orders - получить список заказов
-тело ответа:
-[
-	{
-		""id"" : ""INTEGER"",
-		""start_pos"" : ""TEXT"",
-		""end_pos"" : ""TEXT"",
-		""start_time"" : ""DATE"",
-		""status"" : ""TEXT"",
-		""passenger_name"" : ""TEXT"",
-		""car_id"" : ""INTEGER"",
-		""driver_id"" : ""INTEGER""
-	}
-]
-
 def POSTorders(start, end, start_time, status, pass_name, car_id, driver_id):
     Korneeva = conn.cursor()
     Korneeva.execute("INSERT INTO Korneeva.orders VALUES (1, "
@@ -131,19 +86,6 @@ def GETinfoorder(id):
     Korneeva = conn.cursor()
     Korneeva.execute("SELECT * FROM Korneeva.orders WHERE id = " + str(id) + ";")
     Korneeva.fetchall()
-
-GET/orders/{id} - получить данные заказа
-тело ответа:
-{
-	""id"" : ""INTEGER"",
-	""start_pos"" : ""TEXT"",
-	""end_pos"" : ""TEXT"",
-	""start_time"" : ""DATE"",
-	""status"" : ""TEXT"",
-	""passenger_name"" : ""TEXT"",
-	""car_id"" : ""INTEGER"",
-	""driver_id"" : ""INTEGER""
-}
 
 def PUTorder(id, new_status):
     Korneeva = conn.cursor()

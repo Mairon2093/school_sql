@@ -1,4 +1,5 @@
 import fastapi
+from fastapi import Request, Response, FastAPI
 
 app = FastAPI()
 
@@ -7,6 +8,5 @@ async def ping():
     return Response(200)
 
 @app.post("/orders")
-async def register(r: Request):
-    body = await RegUserModel.load(r.json())
-    print(body)
+async def register(r : Request):
+    print(await r.json())

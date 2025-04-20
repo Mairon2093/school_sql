@@ -1,0 +1,95 @@
+GET/cars - получить список машин
+тело ответа:
+[
+	{
+		""id"" : ""INTEGER"",
+		""car_number"" : ""TEXT"",
+		""car_model"" : ""TEXT""
+	}
+]
+
+POST/cars - добавить машину
+тело запроса:
+{
+	""car_number"" : ""TEXT"",
+	""car_model"" : ""TEXT""
+}
+
+DELETE/cars/{id} - удалить машину
+
+GET/cars/{id} - получить данные машины по id
+тело ответа:
+{
+	""id"" : ""INTEGER"",
+	""car_number"" : ""TEXT"",
+	""car_model"" : ""TEXT""
+}
+
+GET/drivers - получить список водителей
+тело ответа:
+[
+	{
+		""id"" : ""INTEGER"",
+		""driver_rating"" : ""INTEGER"",
+		""driver_name"" : ""TEXT""
+	}
+]
+
+POST/drivers - добавить водителя
+тело запроса:
+{
+    ""driver_rating"" : ""INTEGER"",
+    ""driver_name"" : ""TEXT""
+}
+
+GET/drivers/{id} - получить данные водителя
+тело ответа:
+{
+	""id"" : ""INTEGER"" PRIMARY KEY,
+	""driver_rating"" : ""INTEGER"",
+	""driver_name"" : ""TEXT""
+}
+
+DELETE/drivers/{id} - удалить водителя
+
+GET/orders - получить список заказов
+тело ответа:
+[
+	{
+		""id"" : ""INTEGER"",
+		""start_pos"" : ""TEXT"",
+		""end_pos"" : ""TEXT"",
+		""start_time"" : ""DATE"",
+		""status"" : ""TEXT"",
+		""passenger_name"" : ""TEXT"",
+		""car_id"" : ""INTEGER"",
+		""driver_id"" : ""INTEGER""
+	}
+]
+
+POST/orders - создать заказ
+тело запроса:
+{
+	""start_pos"" : ""TEXT"",
+	""end_pos"" : ""TEXT"",
+	""start_time"" : ""DATE"",
+	""status"" : ""TEXT"",
+	""passenger_name"" : ""TEXT"",
+	""car_id"" : ""INTEGER"",
+	""driver_id"" : ""INTEGER""
+}
+
+GET/orders/{id} - получить данные заказа
+тело ответа:
+{
+	""id"" : ""INTEGER"",
+	""start_pos"" : ""TEXT"",
+	""end_pos"" : ""TEXT"",
+	""start_time"" : ""DATE"",
+	""status"" : ""TEXT"",
+	""passenger_name"" : ""TEXT"",
+	""car_id"" : ""INTEGER"",
+	""driver_id"" : ""INTEGER""
+}
+
+DELETE/orders/{id} - удалить информацию о заказе

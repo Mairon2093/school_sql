@@ -46,9 +46,9 @@ def create_order():
         print('ERROR: %s' % e)
     assert r.text == "Ok"
 
-def get_car():
+def get_car(id):
     car_ex = {"car_number" : "123Ee", "car_model" : "pupupu"}
-    url = f"http://{host}/cars/1”
+    url = f"http://{host}/cars/{id}”
     r = requests.get(url)
 
     try:
@@ -59,9 +59,9 @@ def get_car():
     assert car_ex == car
     
 
-def get_driver():
+def get_driver(id):
     driver_ex = {"driver_rating" : 5, "driver_name" : "chel"}
-    url = f"http://{host}/drivers/1”
+    url = f"http://{host}/drivers/{id}”
     r = requests.get(url)
 
     try:
@@ -71,9 +71,9 @@ def get_driver():
     driver = json.loads(r.data)
     assert driver_ex == driver
 
-def get_order():
+def get_order(id):
     order_ex = {"start_pos" : "pos1", "end_pos" : "pos2", "start_time" : "12.12.2025", "status" : "completed"}
-    url = f"http://{host}/orders/1”
+    url = f"http://{host}/orders/{id}”
     r = requests.get(url)
 
     try:
@@ -82,3 +82,15 @@ def get_order():
         print('ERROR: %s' % e)
     order = json.loads(r.data)
     assert order_ex == order
+
+def get_all_table(table_name):
+    url = f"http://{host}/{table_name}”
+    r = requests.get(url)
+
+    try:
+        r.raise_for_status()
+    except requests.exceptions.HTTPError as e:
+        print('ERROR: %s' % e)
+    else:
+        for (x : r):
+        print(json.load(x))
